@@ -2,11 +2,94 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-</head>
+    <script src="./variable.js"></script>
+    <script src="./datatype.js"></script>
+    <title>JavaScript Variables Examples</title>
+  </head>
 <body>
-   
+
+<h1>JavaScript Variable – Examples / Exercise</h1>
+
+<div class="box">
+    <h3>Example 1:</h3>
+    <code>
+console.log(nm);
+let nm = "name";
+    </code>
+    <p class="answer">Answer or Error: ❌ ReferenceError</p>
+    <p>Why: <br>
+        <b>let</b> variable hoisted hota hai lekin use karne se pehle access nahi hota  
+        (Temporal Dead Zone). Isliye error aata hai.
+    </p>
+</div>
+
+<div class="box">
+    <h3>Example 2:</h3>
+    <code>
+console.log(b);
+var b = "username";
+    </code>
+    <p class="answer">Answer or Error: ✅ Output = <b>undefined</b></p>
+    <p>Why: <br>
+        <b>var</b> hoisted hota hai. Declaration upar chali jaati hai,
+        lekin value baad me assign hoti hai.
+    </p>
+</div>
+
+<div class="box">
+    <h3>Example 3:</h3>
+    <code>
+var x = 1;
+{
+    var x = 2;
+}
+console.log(x);
+    </code>
+    <p class="answer">Answer or Error: ✅ Output = <b>2</b></p>
+    <p>Why: <br>
+        <b>var</b> block scoped nahi hota. Dono jagah same variable hota hai,
+        isliye value overwrite ho jaati hai.
+    </p>
+</div>
+
+<div class="box">
+    <h3>Example 4:</h3>
+    <code>
+let a = 10;
+{
+    let a = 20;
+    console.log("Inside:", a);
+}
+console.log("Outside:", a);
+    </code>
+    <p class="answer">Answer or Error: ✅ Output</p>
+    <code>
+Inside: 20
+Outside: 10
+    </code>
+    <p>Why: <br>
+        <b>let</b> block scoped hota hai. Andar aur bahar alag-alag variables bante hain.
+    </p>
+</div>
+
+<div class="box">
+    <h3>Example 5:</h3>
+    <code>
+const person = { name: "demo" };
+
+person.name = "user"; // ✅
+person = {};          // ❌
+    </code>
+    <p class="answer">Answer or Error:</p>
+    <ul>
+        <li>person.name = "user" → ✅ No Error</li>
+        <li>person = {} → ❌ TypeError</li>
+    </ul>
+    <p>Why: <br>
+        <b>const</b> me object ka reference change nahi hota,
+        lekin uski properties change ho sakti hain.
+    </p>
+</div>
+
 </body>
 </html>
